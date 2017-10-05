@@ -33,17 +33,24 @@ if [[ ! -f "$CHALLENGE_PATH" ]]; then
 else
     log "Checking \"$CHALLENGE_PATH\"'s filetype..."
     case $(file --mime-type -b "$CHALLENGE_PATH") in
-        application/zip)
-            unzip "$CHALLENGE_PATH" -d "$WEB_PATH"
-            ;;
         application/x-tar)
             tar -xf "$CHALLENGE_PATH" -C "$WEB_PATH"
             ;;
-        application/x-gzip)
-            tar -xf "$CHALLENGE_PATH" -C "$WEB_PATH"
+        application/gzip)
+            tar -zxf "$CHALLENGE_PATH" -C "$WEB_PATH"
+            ;;
+        application/x-bzip2)
+            tar -jxf "$CHALLENGE_PATH" -C "$WEB_PATH"
+            ;;
+        application/x-xz)
+            tar -Jxf "$CHALLENGE_PATH" -C "$WEB_PATH"
+            ;;
+        application/zip)
+            unzip "$CHALLENGE_PATH" -d "$WEB_PATH"
             ;;
         application/x-rar)
-            unrar e "$CHALLENGE_PATH" "$WEB_PATH"
+        application/x-7z-compressed)
+            7z x "$CHALLENGE_PATH" -o"$WEB_PATH"
             ;;
         *)
             error_log "Currently not supported. Sorry..."
