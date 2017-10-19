@@ -49,6 +49,8 @@ else
             unzip "$CHALLENGE_PATH" -d "$WEB_PATH"
             ;;
         application/x-rar)
+            7z x "$CHALLENGE_PATH" -o"$WEB_PATH"
+            ;;
         application/x-7z-compressed)
             7z x "$CHALLENGE_PATH" -o"$WEB_PATH"
             ;;
