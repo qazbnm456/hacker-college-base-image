@@ -59,6 +59,7 @@ else
             exit 1
             ;;
     esac
+    cd "$WEB_PATH" && chown -R www-data:www-data *
     ok_log "Provisioning is ready!"
     apache2-foreground
 fi
