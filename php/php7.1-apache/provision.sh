@@ -12,13 +12,13 @@ function log() {
 function error_log() {
   RED='\033[0;31m'
   NORMAL='\033[0m'
-  echo -e "${RED} [!] $1 ${NORMAL}"
+  echo -e "${RED}[!] $1 ${NORMAL}"
 }
 
 function ok_log() {
   GREEN='\033[0;32m'
   NORMAL='\033[0m'
-  echo -e "${GREEN} [+] $1 ${NORMAL}"
+  echo -e "${GREEN}[+] $1 ${NORMAL}"
 }
 
 # Default values
